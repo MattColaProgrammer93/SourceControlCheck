@@ -18,7 +18,62 @@ public class Program
         bool key = true;
 
         Console.WriteLine("Hello, GitHub!");
+        double userNumber = ValidateInput(userInput, key);
+    }
 
+    private static double ValidateInput(string userInput, bool key)
+    {
+        // If key is true then ask the user the same question, validate the text
+        // if it is a integer until the text is accepted
 
+        // The user's number once text is validated
+        int userNumber = 0;
+        while (key)
+        {
+            Console.WriteLine("How many pizzas would the user like?");
+            userInput = Console.ReadLine();
+
+            if (!IsTextValid(userInput) || IsInt(userInput) || IsWithinRange(Convert.ToInt32(userInput), 0, 100))
+            {
+                userNumber = Convert.ToInt32(userInput);
+            }
+        }
+
+        return userNumber;
+    }
+
+    private static bool IsTextValid(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input)) // Checks for white spacing or is empty
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private static bool IsInt(string input)
+    {
+        try
+        {
+            Convert.ToInt32(input);
+            return true;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+        catch (OverflowException)
+        {
+            return false;
+        }
+    }
+
+    private static bool IsWithinRange(int number, int minimum, int maximum)
+    {
+        if (number >= minimum && number <= maximum)
+        {
+            return true;
+        }
+        return false;
     }
 }
