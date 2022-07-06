@@ -19,6 +19,11 @@ public class Program
 
         Console.WriteLine("Hello, GitHub!");
         int userNumber = ValidateInput(userInput, key);
+
+        // Convert the int to a double to calculate the total price for the number of
+        // pizzas.
+        total = priceOfAPizza * Convert.ToDouble(userNumber);
+        Console.WriteLine("The grand total of the pizzas is " + total);
     }
 
     private static int ValidateInput(string userInput, bool key)
