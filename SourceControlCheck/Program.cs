@@ -18,10 +18,10 @@ public class Program
         bool key = true;
 
         Console.WriteLine("Hello, GitHub!");
-        double userNumber = ValidateInput(userInput, key);
+        int userNumber = ValidateInput(userInput, key);
     }
 
-    private static double ValidateInput(string userInput, bool key)
+    private static int ValidateInput(string userInput, bool key)
     {
         // If key is true then ask the user the same question, validate the text
         // if it is a integer until the text is accepted
@@ -36,6 +36,10 @@ public class Program
             if (!IsTextValid(userInput) || IsInt(userInput) || IsWithinRange(Convert.ToInt32(userInput), 0, 100))
             {
                 userNumber = Convert.ToInt32(userInput);
+            }
+            else
+            {
+                Console.WriteLine("You will need a integer number for this question, for example: 1, 6, 12");
             }
         }
 
