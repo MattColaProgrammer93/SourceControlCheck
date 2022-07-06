@@ -38,13 +38,14 @@ public class Program
             Console.WriteLine("How many pizzas would the user like?");
             userInput = Console.ReadLine();
 
-            if (!IsTextValid(userInput) || IsInt(userInput) || IsWithinRange(Convert.ToInt32(userInput), 0, 100))
+            if (IsTextValid(userInput) || !IsInt(userInput) || !IsWithinRange(Convert.ToInt32(userInput), 0, 100))
             {
-                userNumber = Convert.ToInt32(userInput);
+                Console.WriteLine("You will need a integer number for this question, the range is between 0 to 100 ");
             }
             else
             {
-                Console.WriteLine("You will need a integer number for this question, for example: 1, 6, 12");
+                userNumber = Convert.ToInt32(userInput);
+                key = false;
             }
         }
 
